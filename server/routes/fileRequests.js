@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 
 const fileUpload = require("express-fileupload");
+const { response } = require("express");
 
 const textFilesPath = "./uploads/textFiles";
 const spreadsheetPath = "./uploads/spreadsheets";
@@ -23,18 +24,33 @@ router.get("/plainText", (req, res) => {
     }
 
     files.forEach((fileName, index) => {
+      const name = [];
+      let skills = [];
+      let obj = { name: "", skills: "" };
       const input = fs.createReadStream(`${textFilesPath}/${fileName}`);
       const rl = require("readline").createInterface({
         input: input,
         terminal: false,
       });
       rl.on("line", (line) => {
-        console.log(line);
+        if (line.includes("Skills")) {
+          skills.push(line.slice(line.indexOf(": ") + 2));
+          //skills += line.slice(line.indexOf(": ") + 2);
+          //console.log(fileName + " " + line);
+          obj.skills = obj.skills + line.slice(line.indexOf(": ") + 2);
+          console.log(fileName, skills);
+          //response.write(fileName, skills);
+          //   response.write(JSON.stringify(obj));
+          //   response.end();
+          res.write(JSON.stringify(skills));
+          res.end();
+        }
       });
+      //response.write("test");
     });
-
-    res.send(files); // temporary
+    //res.end("check"); // temporar
   });
+  //response.end("end");
 });
 
 // POST a file
