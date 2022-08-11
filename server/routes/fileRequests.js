@@ -4,11 +4,37 @@ const fs = require("fs");
 
 const fileUpload = require("express-fileupload");
 
+const textFilesPath = "./uploads/textFiles";
+const spreadsheetPath = "./uploads/spreadsheets";
+
 router.use(fileUpload({}));
 
 // GET all files
 router.get("/", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree", "userFour"] });
+});
+
+// GET all txt files
+router.get("/plainText", (req, res) => {
+  // readdir provides a files array where all file names in a directory are stored as strings
+  fs.readdir(textFilesPath, (err, files) => {
+    if (err) {
+      console.error(err);
+    }
+
+    files.forEach((fileName, index) => {
+      const input = fs.createReadStream(`${textFilesPath}/${fileName}`);
+      const rl = require("readline").createInterface({
+        input: input,
+        terminal: false,
+      });
+      rl.on("line", (line) => {
+        console.log(line);
+      });
+    });
+
+    res.send(files); // temporary
+  });
 });
 
 // POST a file
