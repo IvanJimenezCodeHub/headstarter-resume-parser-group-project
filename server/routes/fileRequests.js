@@ -35,15 +35,17 @@ router.get("/plainText", (req, res) => {
       rl.on("line", (line) => {
         if (line.includes("Skills")) {
           skills.push(line.slice(line.indexOf(": ") + 2));
-          //skills += line.slice(line.indexOf(": ") + 2);
-          //console.log(fileName + " " + line);
           obj.skills = obj.skills + line.slice(line.indexOf(": ") + 2);
           console.log(fileName, skills);
-          //response.write(fileName, skills);
-          //   response.write(JSON.stringify(obj));
-          //   response.end();
+          console.log(obj);
           res.write(JSON.stringify(skills));
-          res.end();
+          //res.end();
+        }
+
+        if (line.includes("Contact")) {
+          if (index === files.length - 1) {
+            res.end();
+          }
         }
       });
       //response.write("test");
