@@ -1,10 +1,17 @@
-const express = require('express');
-const app = express()
+const express = require("express");
+const app = express();
 
-app.get("/api", (req, res) => {
-    res.json({ "users": ["userOne", "userTwo", "userThree", "userFour"] })
-})
+const fileRequestRoutes = require("./routes/fileRequests");
+
+// to log incoming request path & method
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
+
+// use fileRequests.js to handle requests
+app.use("/api/fileRequests", fileRequestRoutes);
 
 app.listen(8080, () => {
-    console.log("Server is running on port 8080");
-})
+  console.log("Server is running on port 8080");
+});
