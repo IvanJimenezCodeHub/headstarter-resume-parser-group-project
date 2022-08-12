@@ -1,0 +1,89 @@
+.container {
+    justify-content: center;
+
+}
+
+.blueBubble {
+    position: relative;
+    height: auto;
+    width: 900px;
+    margin-top: 75px;
+    margin-left: 100px;
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.title {
+    position: relative;
+    left: 200px;
+    bottom: 175px;
+    font-size: 50px;
+    display: flex;
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.whiteBubble {
+    position: absolute;
+    height: auto;
+
+    width: 900px;
+    display: block;
+    left: 200px;
+    bottom: 100px;
+
+}
+
+
+.HRIcon {
+    position: absolute;
+    left: 400px;
+    top: 350px;
+    width: 150px;
+    height: auto;
+    display: flex;
+
+}
+
+.Apply {
+    position: absolute;
+    left: 800px;
+    top: 350px;
+    width: 150px;
+    height: auto;
+    display: flex;
+}
+
+.button1 {
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 9px 10px;
+    font-size: 19px;
+    border-radius: 8px;
+    color: white;
+    background-color: #4ECAFF;
+    position: absolute;
+    left: 350px;
+    top: 515px;
+    font-weight: bold;
+    border: none;
+    display: flex;
+
+}
+
+.button2 {
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 9px 10px;
+    font-size: 19px;
+    border-radius: 8px;
+    color: white;
+    background-color: #4ECAFF;
+    position: absolute;
+    left: 740px;
+    top: 515px;
+    font-weight: bold;
+    border: none;
+    display: flex;
+
+}
