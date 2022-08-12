@@ -3,12 +3,74 @@ const router = express.Router();
 const fs = require("fs");
 
 const fileUpload = require("express-fileupload");
+const { response } = require("express");
+
+const textFilesPath = "./uploads/textFiles";
+const spreadsheetPath = "./uploads/spreadsheets";
 
 router.use(fileUpload({}));
 
 // GET all files
 router.get("/", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree", "userFour"] });
+});
+
+// GET all txt files
+router.get("/plainText", (req, res) => {
+  // readdir provides a files array where all file names in a directory are stored as strings
+  fs.readdir(textFilesPath, (err, files) => {
+    if (err) {
+      console.error(err);
+    }
+    let candidate = [];
+
+    files.forEach((fileName, index) => {
+      // if you want to send an array of arrays to client
+      let entry = [];
+      let name = "";
+      let skills = "";
+      let experience = "";
+      let contact = "";
+      // if you want to send an array of objects to client
+      let obj = { name: "", skills: "", experience: "", contact: "" };
+      const input = fs.createReadStream(`${textFilesPath}/${fileName}`);
+      const rl = require("readline").createInterface({
+        input: input,
+        terminal: false,
+      });
+      rl.on("line", (line) => {
+        if (line.includes("Name")) {
+          name = line.slice(line.indexOf(": ") + 2);
+          obj.name = line.slice(line.indexOf(": ") + 2);
+          entry.push(name);
+        }
+
+        if (line.includes("Skills")) {
+          skills = line.slice(line.indexOf(": ") + 2);
+          obj.skills = line.slice(line.indexOf(": ") + 2);
+          entry.push(skills);
+        }
+        if (line.includes("Experience")) {
+          experience = line.slice(line.indexOf(": ") + 2);
+          obj.experience = line.slice(line.indexOf(": ") + 2);
+          entry.push(experience);
+        }
+
+        if (line.includes("Contact")) {
+          contact = line.slice(line.indexOf(": ") + 2);
+          obj.contact = line.slice(line.indexOf(": ") + 2);
+          entry.push(contact);
+          candidate.push(obj);
+          entry = [];
+
+          if (index === files.length - 1) {
+            console.log(candidate);
+            res.json({ candidate });
+          }
+        }
+      });
+    });
+  });
 });
 
 // POST a file
