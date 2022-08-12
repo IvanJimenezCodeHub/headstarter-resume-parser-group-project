@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Application from './Components/Application/Application';
+import HomePage from './Components/HomePage'
+import HRDash from './Components/HR/HRDash'
+
 
 function App() {
-  const [backendData, setBackendData] = useState([{}])
-
-  useEffect(() => {
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-      data => {
-        setBackendData(data)
-      }
-    )
-  }, [])
 
   return (
-    <div>
-      <div>Welcome to the Starter Code!</div>
-      <div>
-        {(typeof backendData.users === 'undefined') ? (
-          <p>Loading...</p>
-          ) : (
-          backendData.users.map((user, i) => (
-            <p key={i}>{user}</p>
-          ))
-        )}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/HRDash" element={<HRDash />} />
+        <Route path="/Application" element={<Application />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

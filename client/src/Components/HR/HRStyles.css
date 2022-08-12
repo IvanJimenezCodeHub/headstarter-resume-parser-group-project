@@ -1,0 +1,120 @@
+.heading {
+    position: absolute;
+    top: 30px;
+    left: 70px;
+}
+
+.Home {
+    position: absolute;
+    top: 30px;
+    left: 1000px;
+}
+
+.homeText {
+    position: absolute;
+    left: 1000px;
+    top: 80px;
+}
+
+.changeRole {
+    position: absolute;
+    left: 1175px;
+    top: 35px;
+}
+
+.changeroleText {
+    position: absolute;
+    left: 1140px;
+    top: 85px;
+}
+
+.line {
+    position: absolute;
+    top: 80px;
+    left: 125px;
+    height: auto;
+    width: 90px;
+}
+
+.HRIcon2 {
+    position: absolute;
+    top: 130px;
+    left: 230px;
+    height: auto;
+    width: 75px;
+}
+
+.HRText {
+    position: absolute;
+    top: 143px;
+    left: 315px;
+}
+
+.blueBubble2 {
+    position: absolute;
+    height: auto;
+    width: 1200px;
+    top: 250px;
+    left: 90px;
+}
+
+.HRText2 {
+    position: absolute;
+    top: 340px;
+    left: 135px;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+.whiteBubble2 {
+    position: absolute;
+    height: 200px;
+    width: 1200px;
+    top: 550px;
+    left: 45px;
+}
+
+.fileSelect {
+    position: absolute;
+    top: 620px;
+    left: 1000px;
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 9px 10px;
+    font-size: 19px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ece9e9;
+    height: auto;
+    width: 175px;
+}
+
+.blueBubble3 {
+    position: absolute;
+    height: 250px;
+    width: 1200px;
+    top: 760px;
+    left: 90px;
+}
+
+.blueBubble4 {
+    position: absolute;
+    height: 200px;
+    width: 1200px;
+    top: 1030px;
+    left: 90px;
+}
+
+.cancel {
+    position: absolute;
+    top: 925px;
+    left: 1000px;
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 9px 10px;
+    font-size: 19px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ece9e9;
+    height: auto;
+    width: 175px;
+}
