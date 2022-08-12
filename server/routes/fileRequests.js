@@ -22,37 +22,55 @@ router.get("/plainText", (req, res) => {
     if (err) {
       console.error(err);
     }
+    let candidate = [];
 
     files.forEach((fileName, index) => {
-      const name = [];
-      let skills = [];
-      let obj = { name: "", skills: "" };
+      // if you want to send an array of arrays to client
+      let entry = [];
+      let name = "";
+      let skills = "";
+      let experience = "";
+      let contact = "";
+      // if you want to send an array of objects to client
+      let obj = { name: "", skills: "", experience: "", contact: "" };
       const input = fs.createReadStream(`${textFilesPath}/${fileName}`);
       const rl = require("readline").createInterface({
         input: input,
         terminal: false,
       });
       rl.on("line", (line) => {
+        if (line.includes("Name")) {
+          name = line.slice(line.indexOf(": ") + 2);
+          obj.name = line.slice(line.indexOf(": ") + 2);
+          entry.push(name);
+        }
+
         if (line.includes("Skills")) {
-          skills.push(line.slice(line.indexOf(": ") + 2));
-          obj.skills = obj.skills + line.slice(line.indexOf(": ") + 2);
-          console.log(fileName, skills);
-          console.log(obj);
-          res.write(JSON.stringify(skills));
-          //res.end();
+          skills = line.slice(line.indexOf(": ") + 2);
+          obj.skills = line.slice(line.indexOf(": ") + 2);
+          entry.push(skills);
+        }
+        if (line.includes("Experience")) {
+          experience = line.slice(line.indexOf(": ") + 2);
+          obj.experience = line.slice(line.indexOf(": ") + 2);
+          entry.push(experience);
         }
 
         if (line.includes("Contact")) {
+          contact = line.slice(line.indexOf(": ") + 2);
+          obj.contact = line.slice(line.indexOf(": ") + 2);
+          entry.push(contact);
+          candidate.push(obj);
+          entry = [];
+
           if (index === files.length - 1) {
-            res.end();
+            console.log(candidate);
+            res.json({ candidate });
           }
         }
       });
-      //response.write("test");
     });
-    //res.end("check"); // temporar
   });
-  //response.end("end");
 });
 
 // POST a file
