@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .container {
     justify-content: center;
+}
 
+.container2 {
+    margin-top: 75px;
 }
 
 .blueBubble {
@@ -15,85 +20,66 @@
 
 .title {
     position: relative;
-    left: 200px;
-    bottom: 175px;
-    font-size: 50px;
+    left: 130px;
+    bottom: 155px;
+    font-size: 33px;
     display: flex;
     color: white;
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 
 }
 
 .whiteBubble {
     position: relative;
     height: auto;
-
     width: 900px;
     display: flex;
     left: 90px;
     bottom: 100px;
-
 }
-
 
 .HRIcon {
     position: relative;
     left: 300px;
-    top: -370px;
+    top: -350px;
     width: 150px;
     height: auto;
     display: flex;
-
 }
 
 .Apply {
     position: relative;
-    left: 700px;
+    left: 660px;
     top: -562px;
     width: 150px;
     height: auto;
     display: flex;
 }
 
-.button1 {
-    box-shadow: 10px 5px 5px rgb(160, 160, 160);
-    padding: 9px 10px;
-    font-size: 19px;
-    border-radius: 8px;
-    color: white;
-    background-color: #4ECAFF;
+.text {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 5px;
     position: relative;
     left: 250px;
-    top: -350px;
-    font-weight: bold;
+    top: -345px;
     border: none;
     display: flex;
-
 }
 
-.button1:hover {
-    background-color: #64CE7C;
-    transition: 0.7s;
-}
-
-.button2 {
-    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+.text2 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
     padding: 9px 10px;
-    font-size: 19px;
-    border-radius: 8px;
-    color: white;
-    background-color: #4ECAFF;
     position: relative;
-    left: 635px;
-    top: -540px;
-    font-weight: bold;
+    left: 585px;
+    top: -558px;
     border: none;
     display: flex;
-
-}
-
-.button2:hover {
-    background-color: #64CE7C;
-    transition: 0.7s;
 }
