@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
+const XLSX = require("xlsx");
 
 const fileUpload = require("express-fileupload");
 const { response } = require("express");
@@ -15,6 +16,27 @@ router.get("/", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree", "userFour"] });
   // This is just dummy data
 });
+
+// GET all xlsx files
+router.get("/excelFiles", (req, res) => {
+  fs.readdir(spreadsheetPath, (err, files) => {
+    if (err) {
+      console.error(err);
+    }
+    const candidate = [];
+    files.forEach((fileName) => {
+      const wb = XLSX.readFile(`${spreadsheetPath}/${fileName}`);
+      const sheetName = wb.SheetNames[0];
+      const ws = wb.Sheets[sheetName];
+
+      const data = XLSX.utils.sheet_to_json(ws, { raw: false });
+      candidate.push(...data);
+    });
+    res.json({ candidate });
+  });
+});
+
+// POST
 
 // GET all txt files
 router.get("/plainText", (req, res) => {

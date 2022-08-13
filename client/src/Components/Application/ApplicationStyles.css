@@ -1,0 +1,138 @@
+.heading1 {
+    position: absolute;
+    top: 30px;
+    left: 70px;
+}
+
+.Home2 {
+    position: absolute;
+    top: 30px;
+    left: 1000px;
+}
+
+.homeText2 {
+    position: absolute;
+    left: 1000px;
+    top: 80px;
+}
+
+.changeRole2 {
+    position: absolute;
+    left: 1175px;
+    top: 35px;
+}
+
+.changeroleText2 {
+    position: absolute;
+    left: 1140px;
+    top: 85px;
+}
+
+.line2 {
+    position: absolute;
+    top: 80px;
+    left: 125px;
+    height: auto;
+    width: 90px;
+}
+
+.Apply2 {
+    position: absolute;
+    top: 130px;
+    left: 230px;
+    height: auto;
+    width: 75px;
+}
+
+.applyText {
+    position: absolute;
+    top: 143px;
+    left: 315px;
+}
+
+.box {
+    width: 1000px;
+    top: 250px;
+    left: 200px;
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: #fff;
+    font-family: arial;
+    position: absolute;
+    border: 1px solid gray;
+    border-radius: 15px;
+    height: 200px;
+    box-shadow: 0 0 70px #ccc;
+}
+
+.addFile {
+    position: absolute;
+    left: 450px;
+    top: 20px;
+    height: auto;
+    width: 110px;
+}
+
+
+
+.uploadFile {
+    position: absolute;
+    top: 395px;
+    left: 600px;
+    height: auto;
+    width: 400px;
+}
+
+.uploadFile::-webkit-file-upload-button {
+    border-radius: 9px;
+    background-color: #4ECAFF;
+    color: white;
+    border: none;
+}
+
+.recentFiles {
+    position: absolute;
+    top: 600px;
+    left: 200px;
+}
+
+.table {
+    position: absolute;
+    top: 650px;
+    left: 200px;
+    width: 1000px;
+    border-radius: 15px;
+
+}
+
+th {
+    background-color: #4ECAFF;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 20px;
+}
+
+
+.tableUploadButton {
+    width: 150px;
+    background-color: #60C475;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+}
+
+.uploadFile2 {
+    color: transparent;
+}
+
+.ProgressBarHolder {
+    position: absolute;
+    top: 525px;
+    left: 570px;
+}
