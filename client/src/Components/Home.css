@@ -4,17 +4,70 @@
     justify-content: center;
 }
 
-.container2 {
+.second_container {
     margin-top: 75px;
 }
 
-.blueBubble {
+.blue_bubble {
     position: relative;
     height: auto;
     width: 900px;
     margin-top: 75px;
     margin-left: 100px;
     margin-bottom: 0px;
+    display: flex;
+}
+
+.white_bubble {
+    position: relative;
+    height: auto;
+    width: 900px;
+    display: flex;
+    left: 90px;
+    bottom: 100px;
+}
+
+.hr_icon {
+    position: relative;
+    left: 300px;
+    top: -350px;
+    width: 150px;
+    height: auto;
+    display: flex;
+}
+
+.apply_icon {
+    position: relative;
+    left: 660px;
+    top: -562px;
+    width: 150px;
+    height: auto;
+    display: flex;
+}
+
+.hr_text {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 5px;
+    position: relative;
+    left: 250px;
+    top: -345px;
+    border: none;
+    display: flex;
+}
+
+.applicant_text {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    padding: 9px 10px;
+    position: relative;
+    left: 580px;
+    top: -558px;
+    border: none;
     display: flex;
 }
 
@@ -29,57 +82,4 @@
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
 
-}
-
-.whiteBubble {
-    position: relative;
-    height: auto;
-    width: 900px;
-    display: flex;
-    left: 90px;
-    bottom: 100px;
-}
-
-.HRIcon {
-    position: relative;
-    left: 300px;
-    top: -350px;
-    width: 150px;
-    height: auto;
-    display: flex;
-}
-
-.Apply {
-    position: relative;
-    left: 660px;
-    top: -562px;
-    width: 150px;
-    height: auto;
-    display: flex;
-}
-
-.text {
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    padding: 10px 5px;
-    position: relative;
-    left: 250px;
-    top: -345px;
-    border: none;
-    display: flex;
-}
-
-.text2 {
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    padding: 9px 10px;
-    position: relative;
-    left: 585px;
-    top: -558px;
-    border: none;
-    display: flex;
 }
