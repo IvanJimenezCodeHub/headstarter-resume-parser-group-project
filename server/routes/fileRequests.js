@@ -127,11 +127,9 @@ router.post("/upload", (req, res) => {
   // case: other file mimetypes. NOTE - didn't add support for .xls, xlsb, etc from excel
   else {
     console.log("file not supported");
+    res.status(400).json({ error: "file not supported" });
     // need to send error
   }
-  //console.log(file.data.toString());
 });
-
-// console.log(file) -> 'data' property is a buffer. can do buffer.toString(), might be useful later.
 
 module.exports = router;
