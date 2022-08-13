@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HRStyles.css";
 import Home from "../../Icons/Home.png";
 import changeRole from "../../Icons/changeRole.png";
@@ -9,8 +9,36 @@ import blueBubble2 from "../../Icons/blueBubble.png";
 import { Link } from "react-router-dom";
 import searchMag from "../../Icons/SearchMag.png";
 import filter from "../../Icons/filter.png";
+import axios from "axios";
 
 const HRDash = () => {
+  axios.defaults.baseURL = "http://localhost:8080";
+  const [file, setFile] = useState("");
+  const [filename, setFilename] = useState("Choose File");
+  const [uploadedFile, setUploadedfile] = useState({});
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await axios.post("/api/fileRequests/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const { fileName, filePath } = res.data;
+      setUploadedfile({ fileName, filePath });
+    } catch (err) {
+      if (err.response.status === 500) {
+        console.log("problem w. server");
+      } else {
+        console.log(err.response.data.mssg);
+      }
+    }
+  };
+
   return (
     <div>
       <h1 className="heading">HR Resume Parser</h1>
@@ -36,10 +64,25 @@ const HRDash = () => {
           className="form-control form-control-lg"
           id="formFileLg"
           type="file"
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+            setFilename(e.target.files[0].name);
+            console.log(e.target.files[0].name);
+          }}
         />
       </div>
       <img className="blueBubble3" alt="blueBubble3" src={blueBubble2}></img>
-      <button className="upload">Upload</button>
+      <form onSubmit={onSubmit}>
+        <input type="submit" value="Upload" className="upload" />
+        <button className="upload">Upload</button>
+      </form>
+      {uploadedFile ? (
+        <div className="row mt-5">
+          <div className="col-md-6 m-auto">
+            <h3 className="text-center"> {uploadedFile.fileName} </h3>
+          </div>
+        </div>
+      ) : null}
       <button className="cancel">Cancel</button>
 
       <h3 className="fileLoadingHolder">FileName.txt is loading...</h3>

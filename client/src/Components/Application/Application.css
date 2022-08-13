@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.heading {
+    font-size: 42px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    top: 25px;
+    left: 40px;
+    position: absolute;
+}
+
+.line {
+    position: absolute;
+    top: 72px;
+    left: 5px;
+    height: auto;
+    width: 65px;
+} 
+
+.home {
+    position: absolute;
+    left: 1245px;
+    top: 30px;
+    height: auto;
+    width: 65px;
+}
+
+.home_text {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 1248px;
+    top: 95px;
+}
+
+.change_role {
+    position: absolute;
+    left: 1390px;
+    top: 35px;
+    height: auto;
+    width: 55px;
+}
+
+.change_role_text {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 1360px;
+    top: 95px;
+}
+
+.apply {
+    position: absolute;
+    top: 135px;
+    left: 220px;
+    height: auto;
+    width: 60px;
+}
+
+.apply_text {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 145px;
+    left: 290px;
+}
+
+.box {
+    height: 35%;
+    width: 85%;
+    top: 230px;
+    left: 120px;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    position: absolute;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px 5px #ccc;
+}
+
+.box :hover {
+    cursor: pointer;
+}
+
+.box img {
+    height: auto;
+    width: 11%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.box p {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    margin: auto;
+    top: 210px;
+    left: 575px;
+    right: 0;
+    bottom: 0;
+}
+
+.upload_file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height:100%;
+    opacity: 0.0;
+}
+
+.upload_file::-webkit-file-upload-button {
+    border-radius: 9px;
+    background-color: #4ECAFF;
+    color: white;
+    border: none;
+}
+
+.recent_files {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 600px;
+    left: 120px;
+}
+
+.table {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 650px;
+    left: 120px;
+    width: 85%;
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius: 12px;
+}
+
+th {
+    font-family: 'Poppins', sans-serif;
+    background-color: #4ECAFF;
+    text-align: center;
+    border-radius: 10px;
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+}
+
+td {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 20px;
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+}
+
+td:first-child, th:first-child {
+    border-left: none;
+}
+
+.table_upload_btn {
+    height: 100%;
+    width: 50%;
+    background-color: #60C475;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 3px rgb(160, 160, 160);
+}
+
+.table_upload_btn:hover {
+    cursor: pointer;
+}
+
+.progress_bar {
+    position: absolute;
+    top: 525px;
+    left: 570px;
+}
