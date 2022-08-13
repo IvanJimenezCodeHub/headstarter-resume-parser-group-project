@@ -1,4 +1,4 @@
-Name: FirstName2 LastName2
+Name: Yana Kuznetsova
 
 Skills: Javascript, react, MongoDB
 
