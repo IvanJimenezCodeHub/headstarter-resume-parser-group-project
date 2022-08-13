@@ -166,3 +166,77 @@
     height: auto;
     width: 25px;
 }
+
+.ProgressBarHolder2 {
+    position: absolute;
+    top: 870px;
+    left: 570px;
+}
+
+.fileLoadingHolder {
+    position: absolute;
+    top: 800px;
+    left: 150px;
+}
+
+.table2 {
+    position: absolute;
+    top: 1120px;
+    left: 100px;
+    width: 1150px;
+
+}
+
+th {
+    background-color: #4ECAFF;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+
+.contactedButton {
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ece9e9;
+    height: auto;
+    width: 100px;
+}
+
+.contactedButton:hover {
+    background-color: #4ECAFF;
+    transition: 0.7s;
+}
+
+.contactedButton:active {
+    background-color: #4ECAFF;
+}
+
+.interviewButton {
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ece9e9;
+    height: auto;
+    width: 100px;
+}
+
+.interviewButton:hover {
+    background-color: #64CE7C;
+    transition: 0.7s;
+}
+
+.interviewButton:active {
+    background-color: #64CE7C;
+}

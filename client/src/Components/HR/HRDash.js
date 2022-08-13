@@ -38,11 +38,56 @@ const HRDash = () => {
             <img className='blueBubble3' alt='blueBubble3' src={blueBubble2}></img>
             <button className='upload'>Upload</button>
             <button className='cancel'>Cancel</button>
+
+            <h3 className='fileLoadingHolder'>FileName.txt is loading...</h3>
+            <h3 className='ProgressBarHolder2'>Dynamic Progress Bar</h3>
+
             <form class="d-flex" role="search">
                 <input className="form-control2 me-2" type="search" placeholder="Search..." aria-label="Search" />
             </form>
             <img className='searchMag' alt='searchMag' src={searchMag}></img>
             <img className='filter' alt='filter' src={filter}></img>
+
+            <table className="table2 table-bordered">
+                <thead>
+                    <tr>
+                        <th style={{ borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px" }}>Candidate Name</th>
+                        <th >Skills</th>
+                        <th >Experience</th>
+                        <th >Contact</th>
+                        <th >Contact Status</th>
+                        <th style={{ borderTopRightRadius: "15px", borderBottomRightRadius: "15px" }}>Interview Status</th>
+                    </tr>
+                </thead>
+                <tbody className="table-group-divider">
+                    <tr >
+                        <td>Candidate Name</td>
+                        <td >Skills</td>
+                        <td >Experience</td>
+                        <td >Contact</td>
+                        <td >
+                            <button type="button" className='contactedButton'>Contacted</button>
+                        </td >
+                        <td >
+                            <button type="button" className="interviewButton">Interview</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Candidate Name</td>
+                        <td >Skills</td>
+                        <td >Experience</td>
+                        <td >Contact</td>
+                        <td >
+                            <button type="button" className='contactedButton'>Contacted</button>
+                        </td >
+                        <td >
+                            <button type="button" className="interviewButton">Interview</button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
 
 
 

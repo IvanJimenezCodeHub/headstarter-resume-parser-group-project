@@ -109,8 +109,15 @@
 
 th {
     background-color: #4ECAFF;
-
+    text-align: center;
 }
+
+td {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 20px;
+}
+
 
 .tableUploadButton {
     width: 150px;
@@ -118,4 +125,14 @@ th {
     border-radius: 15px;
     border: none;
     box-shadow: 10px 5px 5px rgb(160, 160, 160);
+}
+
+.uploadFile2 {
+    color: transparent;
+}
+
+.ProgressBarHolder {
+    position: absolute;
+    top: 525px;
+    left: 570px;
 }
