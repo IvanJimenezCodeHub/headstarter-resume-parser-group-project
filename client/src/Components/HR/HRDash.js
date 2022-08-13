@@ -88,7 +88,7 @@ const HRDash = () => {
       <h3 className="fileLoadingHolder">FileName.txt is loading...</h3>
       <h3 className="ProgressBarHolder2">Dynamic Progress Bar</h3>
 
-      <form class="d-flex" role="search">
+      <form className="d-flex" role="search">
         <input
           className="form-control2 me-2"
           type="search"
