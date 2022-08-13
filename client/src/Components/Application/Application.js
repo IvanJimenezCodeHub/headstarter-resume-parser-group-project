@@ -7,8 +7,10 @@ import Apply2 from '../../Icons/Apply2.png'
 import addFile from '../../Icons/addFile.png'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
+import axios from "axios";
 
 const Application = () => {
+    axios.defaults.baseURL = "http://localhost:8080";
     const [files, setFiles] = useState([])
     const current = new Date();
     const date = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;
@@ -16,9 +18,35 @@ const Application = () => {
     const handleFile = (e) => {
         let selectedFile = e.target.files[0];
         if (selectedFile) {
-            setFiles((oldFiles)=>[...oldFiles, {id: uuidv4(), file: selectedFile}])
+            setFiles((oldFiles) => [...oldFiles, { id: uuidv4(), file: selectedFile }])
         }
         console.log(files);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const prevFiles = [...files]
+        const file = prevFiles.find(file => file.id === e.target[0].value)
+        const updatedFiles = prevFiles.filter(file => file.id !== e.target[0].value)
+        setFiles(updatedFiles)
+
+        const formData = new FormData();
+        formData.append("file", file.file);
+
+        try {
+            await axios.post("/api/fileRequests/upload", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+        } 
+        catch(err) {
+            if(err.response.status === 500) {
+                console.log("There was a problem with the server");
+            } else {
+                console.log(err.response.data.mssg);
+            }
+        }
     }
 
     return (
@@ -62,7 +90,10 @@ const Application = () => {
                             <td>{file.file.name}</td>
                             <td>{date}</td>
                             <td>
-                                <button className='table_upload_btn'>Upload</button>
+                                <form onSubmit={handleSubmit}>
+                                    <input type='hidden' name='file_id' value={file.id} />
+                                    <button className='table_upload_btn' type='submit'>Upload</button>
+                                </form>
                             </td>
                         </tr>
                     ))}
