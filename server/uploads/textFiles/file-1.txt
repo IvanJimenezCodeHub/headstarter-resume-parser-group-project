@@ -1,6 +1,6 @@
 Name: FirstName1 LastName1
 
-Skills: C++, java MySQL
+Skills: C++, java, MySQL
 
 Experience: 5
 

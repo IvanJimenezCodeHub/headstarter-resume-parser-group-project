@@ -13,60 +13,52 @@ router.use(fileUpload({}));
 // GET all files
 router.get("/", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree", "userFour"] });
+  // This is just dummy data
 });
 
 // GET all txt files
 router.get("/plainText", (req, res) => {
-  // readdir provides a files array where all file names in a directory are stored as strings
   fs.readdir(textFilesPath, (err, files) => {
     if (err) {
       console.error(err);
     }
     let candidate = [];
+    let closedCounter = 0;
 
     files.forEach((fileName, index) => {
-      // if you want to send an array of arrays to client
-      let entry = [];
-      let name = "";
-      let skills = "";
-      let experience = "";
-      let contact = "";
-      // if you want to send an array of objects to client
+      // send an array of objects to client
       let obj = { name: "", skills: "", experience: "", contact: "" };
       const input = fs.createReadStream(`${textFilesPath}/${fileName}`);
       const rl = require("readline").createInterface({
         input: input,
         terminal: false,
       });
+
       rl.on("line", (line) => {
         if (line.includes("Name")) {
-          name = line.slice(line.indexOf(": ") + 2);
           obj.name = line.slice(line.indexOf(": ") + 2);
-          entry.push(name);
         }
 
         if (line.includes("Skills")) {
-          skills = line.slice(line.indexOf(": ") + 2);
           obj.skills = line.slice(line.indexOf(": ") + 2);
-          entry.push(skills);
         }
         if (line.includes("Experience")) {
-          experience = line.slice(line.indexOf(": ") + 2);
           obj.experience = line.slice(line.indexOf(": ") + 2);
-          entry.push(experience);
         }
 
         if (line.includes("Contact")) {
-          contact = line.slice(line.indexOf(": ") + 2);
           obj.contact = line.slice(line.indexOf(": ") + 2);
-          entry.push(contact);
           candidate.push(obj);
-          entry = [];
 
           if (index === files.length - 1) {
-            console.log(candidate);
-            res.json({ candidate });
+            console.log("file length");
           }
+        }
+      });
+      rl.on("close", () => {
+        closedCounter++;
+        if (closedCounter === files.length - 1) {
+          res.json({ candidate });
         }
       });
     });
@@ -93,13 +85,12 @@ router.post("/upload", (req, res) => {
       });
     });
   }
-  // case: file is a .numbers or .xlsx
+  // case: file is a .numbers or .xlsx. Can also switch this to a general else clause.
   else if (
     file.mimetype === "application/octet-stream" ||
     file.mimetype ===
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   ) {
-    // console.log(file.mimetype);
     file.mv(`${__dirname}/uploads/spreadsheets/${file.name}`, (err) => {
       if (err) {
         console.error(err);
