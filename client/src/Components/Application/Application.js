@@ -27,9 +27,45 @@ const Application = () => {
             <div className='box'>
                 <img className='addFile' alt='addFile' src={addFile}></img>
             </div>
-            <h3 className='uploadFiletext'>Upload File</h3>
+            <form>
+                <input className="uploadFile" type="file" id="fileUpload" />
+            </form>
+            <h3 className='recentFiles'>Recent Files</h3>
 
-        </div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col" style={{ textAlign: 'center' }}>File Name</th>
+                        <th scope="col" style={{ textAlign: 'center' }}>Date</th>
+                        <th scope="col" style={{ textAlign: 'center' }}>Upload</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style={{ textAlign: 'center' }}>File 1.txt</td>
+                        <td style={{ textAlign: 'center' }}>08/12/22</td>
+                        <td style={{ textAlign: 'center' }}><button className='tableUploadButton'>Upload</button></td>
+
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: 'center' }}>File 2.txt</td>
+                        <td style={{ textAlign: 'center' }}>08/12/22</td>
+                        <td style={{ textAlign: 'center' }}><button className='tableUploadButton'>Upload</button></td>
+
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: 'center' }}>File 3.txt</td>
+                        <td style={{ textAlign: 'center' }}>08/12/22</td>
+                        <td style={{ textAlign: 'center' }}><button className='tableUploadButton'>Upload</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+        </div >
     )
 }
 

@@ -75,7 +75,7 @@
     left: 45px;
 }
 
-.fileSelect {
+.upload {
     position: absolute;
     top: 620px;
     left: 1000px;
@@ -87,6 +87,15 @@
     background-color: #ece9e9;
     height: auto;
     width: 175px;
+}
+
+.upload:hover {
+    background-color: #64CE7C;
+    transition: 0.7s;
+}
+
+.upload:active {
+    background-color: #64CE7C;
 }
 
 .blueBubble3 {
@@ -117,4 +126,43 @@
     background-color: #ece9e9;
     height: auto;
     width: 175px;
+}
+
+.cancel:hover {
+    background-color: rgba(237, 96, 96, 0.947);
+    transition: 0.7s;
+}
+
+.form-control {
+    position: absolute;
+    top: 620px;
+    left: 175px;
+    height: auto;
+    width: 790px;
+
+}
+
+.form-control2 {
+    position: absolute;
+    top: 1050px;
+    left: 100px;
+    width: 350px;
+    height: auto;
+}
+
+.searchMag {
+    position: absolute;
+    top: 1053px;
+    left: 420px;
+    height: auto;
+    width: 25px;
+
+}
+
+.filter {
+    position: absolute;
+    top: 1053px;
+    left: 455px;
+    height: auto;
+    width: 25px;
 }
