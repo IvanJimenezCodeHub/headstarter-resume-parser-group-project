@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./HRStyles.css";
 import Home from "../../Icons/Home.png";
 import changeRole from "../../Icons/changeRole.png";
@@ -16,6 +16,36 @@ const HRDash = () => {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
   const [uploadedFile, setUploadedfile] = useState({});
+
+  const [files, setFiles] = useState(null);
+
+  useEffect(() => {
+    let fetched = true;
+    const getFiles = async () => {
+      const filesFromServer = await fetchFiles();
+      if (fetched) {
+        setFiles(filesFromServer);
+      }
+    };
+    getFiles();
+    return () => (fetched = false);
+  }, []);
+  const fetchFiles = async () => {
+    try {
+      const response = await fetch("api/fileRequests/");
+      const json = await response.json();
+      if (response.ok) {
+        console.log("ok");
+        return json;
+      }
+    } catch (err) {
+      if (err.response.status === 500) {
+        console.log("problem with server");
+      } else {
+        console.log(err.response.data.mssg);
+      }
+    }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -99,66 +129,54 @@ const HRDash = () => {
       <img className="searchMag" alt="searchMag" src={searchMag}></img>
       <img className="filter" alt="filter" src={filter}></img>
 
-      <table className="table2 table-bordered">
-        <thead>
-          <tr>
-            <th
-              style={{
-                borderTopLeftRadius: "15px",
-                borderBottomLeftRadius: "15px",
-              }}
-            >
-              Candidate Name
-            </th>
-            <th>Skills</th>
-            <th>Experience</th>
-            <th>Contact</th>
-            <th>Contact Status</th>
-            <th
-              style={{
-                borderTopRightRadius: "15px",
-                borderBottomRightRadius: "15px",
-              }}
-            >
-              Interview Status
-            </th>
-          </tr>
-        </thead>
-        <tbody className="table-group-divider">
-          <tr>
-            <td>Candidate Name</td>
-            <td>Skills</td>
-            <td>Experience</td>
-            <td>Contact</td>
-            <td>
-              <button type="button" className="contactedButton">
-                Contacted
-              </button>
-            </td>
-            <td>
-              <button type="button" className="interviewButton">
-                Interview
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Candidate Name</td>
-            <td>Skills</td>
-            <td>Experience</td>
-            <td>Contact</td>
-            <td>
-              <button type="button" className="contactedButton">
-                Contacted
-              </button>
-            </td>
-            <td>
-              <button type="button" className="interviewButton">
-                Interview
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      {files && (
+        <table className="table2 table-bordered">
+          <thead>
+            <tr>
+              <th
+                style={{
+                  borderTopLeftRadius: "15px",
+                  borderBottomLeftRadius: "15px",
+                }}
+              >
+                Candidate Name
+              </th>
+              <th>Skills</th>
+              <th>Experience</th>
+              <th>Contact</th>
+              <th>Contact Status</th>
+              <th
+                style={{
+                  borderTopRightRadius: "15px",
+                  borderBottomRightRadius: "15px",
+                }}
+              >
+                Interview Status
+              </th>
+            </tr>
+          </thead>
+          <tbody className="table-group-divider">
+            {files.candidates.map((candidateObject) => (
+              <tr>
+                <td>{candidateObject.name}</td>
+                <td>{candidateObject.skills}</td>
+                <td>{candidateObject.experience}</td>
+                <td>{candidateObject.contact}</td>
+                <td>
+                  <button type="button" className="contactedButton">
+                    Contacted
+                  </button>
+                </td>
+                <td>
+                  <button type="button" className="interviewButton">
+                    Interview
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
