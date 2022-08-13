@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 
 const fileRequestRoutes = require("./routes/fileRequests");
+const cors = require("cors");
+app.use(cors({ origin: "*" }));
 
 // to log incoming request path & method
 app.use((req, res, next) => {

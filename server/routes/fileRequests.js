@@ -87,14 +87,14 @@ router.post("/upload", (req, res) => {
     file.mimetype === "application/octet-stream"
   ) {
     console.log("supported file");
-    file.mv(`${__dirname}/uploads/${file.name}`, (err) => {
+    file.mv(`./uploads/${file.name}`, (err) => {
       if (err) {
         console.error(err);
         return res.status(500).send(err);
       }
       res.json({
         fileName: file.name,
-        filePath: `/uploads/${file.name}`,
+        filePath: `./uploads/${file.name}`,
       });
     });
   } else {
