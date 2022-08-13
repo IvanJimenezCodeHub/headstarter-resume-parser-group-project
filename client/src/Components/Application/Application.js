@@ -7,7 +7,11 @@ import Apply2 from '../../Icons/Apply2.png'
 import addFile from '../../Icons/addFile.png'
 import { Link } from 'react-router-dom'
 
+
 const Application = () => {
+
+
+
     return (
         <div>
             <h1 className='heading1'>
@@ -27,37 +31,45 @@ const Application = () => {
             <div className='box'>
                 <img className='addFile' alt='addFile' src={addFile}></img>
             </div>
-            <form>
-                <input className="uploadFile" type="file" id="fileUpload" />
+            <form >
+                <input className="uploadFile" type="file" id="uploadFile"
+
+                />
+                <label className='uploadFile2' htmlFor='uploadFile' hidden>
+
+                </label>
+
             </form>
+
+            <h3 className='ProgressBarHolder'>Dynamic Progress Bar</h3>
             <h3 className='recentFiles'>Recent Files</h3>
 
-            <table className="table">
+            <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col" style={{ textAlign: 'center' }}>File Name</th>
-                        <th scope="col" style={{ textAlign: 'center' }}>Date</th>
-                        <th scope="col" style={{ textAlign: 'center' }}>Upload</th>
+                        <th scope="col" style={{ borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px" }}>File Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col" style={{ borderTopRightRadius: "15px", borderBottomRightRadius: "15px" }}>Upload</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{ textAlign: 'center' }}>File 1.txt</td>
-                        <td style={{ textAlign: 'center' }}>08/12/22</td>
-                        <td style={{ textAlign: 'center' }}><button className='tableUploadButton'>Upload</button></td>
+                        <td >File 1.txt</td>
+                        <td >08/12/22</td>
+                        <td ><button className='tableUploadButton'>Upload</button></td>
 
                     </tr>
                     <tr>
-                        <td style={{ textAlign: 'center' }}>File 2.txt</td>
-                        <td style={{ textAlign: 'center' }}>08/12/22</td>
-                        <td style={{ textAlign: 'center' }}><button className='tableUploadButton'>Upload</button></td>
+                        <td >File 2.txt</td>
+                        <td >08/12/22</td>
+                        <td ><button className='tableUploadButton'>Upload</button></td>
 
                     </tr>
                     <tr>
-                        <td style={{ textAlign: 'center' }}>File 3.txt</td>
-                        <td style={{ textAlign: 'center' }}>08/12/22</td>
-                        <td style={{ textAlign: 'center' }}><button className='tableUploadButton'>Upload</button></td>
+                        <td >File 3.txt</td>
+                        <td >08/12/22</td>
+                        <td ><button className='tableUploadButton'>Upload</button></td>
                     </tr>
 
                 </tbody>
