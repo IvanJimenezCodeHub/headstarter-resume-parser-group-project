@@ -29,7 +29,7 @@ router.get("/excelFiles", (req, res) => {
       const ws = wb.Sheets[sheetName];
 
       const data = XLSX.utils.sheet_to_json(ws, { raw: false });
-      candidate.push(data);
+      candidate.push(...data);
     });
     res.json({ candidate });
   });
