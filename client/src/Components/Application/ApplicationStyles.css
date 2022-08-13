@@ -75,8 +75,47 @@
     width: 110px;
 }
 
-.uploadFiletext {
+
+
+.uploadFile {
     position: absolute;
-    top: 385px;
-    left: 640px;
+    top: 395px;
+    left: 600px;
+    height: auto;
+    width: 400px;
+}
+
+.uploadFile::-webkit-file-upload-button {
+    border-radius: 9px;
+    background-color: #4ECAFF;
+    color: white;
+    border: none;
+}
+
+.recentFiles {
+    position: absolute;
+    top: 600px;
+    left: 200px;
+}
+
+.table {
+    position: absolute;
+    top: 650px;
+    left: 200px;
+    width: 1000px;
+    border-radius: 15px;
+
+}
+
+th {
+    background-color: #4ECAFF;
+
+}
+
+.tableUploadButton {
+    width: 150px;
+    background-color: #60C475;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
 }

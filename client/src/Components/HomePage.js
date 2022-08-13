@@ -18,17 +18,18 @@ const HomePage = () => {
                     What Role best fits you?
                 </h3>
             </div >
-            <img className='whiteBubble' alt='whiteBubble' src={whiteBubble}></img>
+            <div className='container2'>
+                <img className='whiteBubble' alt='whiteBubble' src={whiteBubble}></img>
 
-            <img className='HRIcon' alt='HRIcon' src={HRIcon} ></img>
-            <Link to="/HRDash">
-                <button className='button1'>I am an HR Representative</button>
-            </Link>
-            <img className='Apply' alt='Apply' src={Apply} ></img>
-            <Link to="/Application">
-                <button className='button2'>I am applying for a position</button>
-            </Link>
-
+                <img className='HRIcon' alt='HRIcon' src={HRIcon} ></img>
+                <Link to="/HRDash">
+                    <button className='button1'>I am an HR Representative</button>
+                </Link>
+                <img className='Apply' alt='Apply' src={Apply} ></img>
+                <Link to="/Application">
+                    <button className='button2'>I am applying for a position</button>
+                </Link>
+            </div>
 
         </div >
     )
