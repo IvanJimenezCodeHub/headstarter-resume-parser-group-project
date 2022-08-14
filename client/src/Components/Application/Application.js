@@ -8,12 +8,14 @@ import addFile from '../../Icons/addFile.png'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
+import Progress from '../Progress'
 
 const Application = () => {
     axios.defaults.baseURL = "http://localhost:8080";
-    const [files, setFiles] = useState([])
     const current = new Date();
     const date = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;
+    const [files, setFiles] = useState([])
+    const [uploadPercentage, setUploadPercentage] = useState(0);
 
     const handleFile = (e) => {
         let selectedFile = e.target.files[0];
@@ -38,19 +40,26 @@ const Application = () => {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
+                onUploadProgress: progressEvent => {
+                    setUploadPercentage(
+                      parseInt(Math.round((progressEvent.loaded * 100) / 
+                      progressEvent.total)));
+                }
             });
+            setTimeout(() => setUploadPercentage(0), 3000);
         } 
         catch(err) {
             if(err.response.status === 500) {
-                console.log("There was a problem with the server");
+                console.log('There was a problem with the server');
             } else {
-                console.log(err.response.data.mssg);
+                console.log(err.response.data.msg);
             }
+            setUploadPercentage(0)
         }
     }
 
     return (
-        <div>
+        <div> 
             <h1 className='heading'>
                 Application
             </h1>
@@ -73,15 +82,14 @@ const Application = () => {
                 </label>
                 <input className="upload_file" type="file" id="uploadFile" onChange={handleFile} />
             </div>
-            <h3 className='progress_bar'>Dynamic Progress Bar</h3>
+            <Progress percentage={uploadPercentage} />
             <h3 className='recent_files'>Recent Files</h3>
-
-            <table className="table table-bordered">
+            <table className="table_style table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">File Name</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Upload</th>
+                        <th>File Name</th>
+                        <th>Date</th>
+                        <th>Upload</th>
                     </tr>
                 </thead>
                 <tbody>

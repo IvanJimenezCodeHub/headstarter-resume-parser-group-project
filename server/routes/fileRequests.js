@@ -68,14 +68,13 @@ router.get("/", (req, res) => {
 // POST a file
 router.post("/upload", (req, res) => {
   if (req.files === null) {
-    return res.status(400).json({ mssg: "no file uploaded" });
+    return res.status(400).json({ msg: "no file uploaded" });
   }
   const file = req.files.file; // '.file' comes from the frontend formdata.append
 
   if (
     file.mimetype === "text/plain" ||
-    file.mimetype ===
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
+    file.mimetype === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
     file.mimetype === "application/vnd.ms-excel" ||
     file.mimetype === "application/msexcel" ||
     file.mimetype === "application/x-msexcel" ||
@@ -86,7 +85,7 @@ router.post("/upload", (req, res) => {
     file.mimetype === "application/x-xls" ||
     file.mimetype === "application/octet-stream"
   ) {
-    console.log("supported file");
+    console.log("Supported File Type");
     file.mv(`./uploads/${file.name}`, (err) => {
       if (err) {
         console.error(err);
@@ -98,8 +97,8 @@ router.post("/upload", (req, res) => {
       });
     });
   } else {
-    console.log("unsupported file");
-    res.status(400).json({ error: "filetype not supported" });
+    console.log("Unsupported File Type");
+    res.status(400).json({ error: "File Type not Supported" });
   }
 });
 
