@@ -42,7 +42,7 @@ const HRDash = () => {
       if (err.response.status === 500) {
         console.log("problem with server");
       } else {
-        console.log(err.response.data.mssg);
+        console.log(err.response.data.msg);
       }
     }
   };
