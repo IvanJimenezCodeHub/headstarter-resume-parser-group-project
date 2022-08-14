@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./HRStyles.css";
+import "./HRDashboard.css";
 import Home from "../../Icons/Home.png";
 import changeRole from "../../Icons/changeRole.png";
 import Line from "../../Icons/line.png";
@@ -10,14 +10,14 @@ import { Link } from "react-router-dom";
 import searchMag from "../../Icons/SearchMag.png";
 import filter from "../../Icons/filter.png";
 import axios from "axios";
+import Progress from '../Progress';
 
-const HRDash = () => {
+const HRDashboard = () => {
   axios.defaults.baseURL = "http://localhost:8080";
   const [file, setFile] = useState("");
-  const [filename, setFilename] = useState("Choose File");
-  const [uploadedFile, setUploadedfile] = useState({});
-
   const [files, setFiles] = useState(null);
+  const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState([])
 
   useEffect(() => {
     let fetched = true;
@@ -53,84 +53,95 @@ const HRDash = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("/api/fileRequests/upload", formData, {
+      await axios.post("/api/fileRequests/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        onUploadProgress: progressEvent => {
+          setUploadPercentage(
+            parseInt(Math.round((progressEvent.loaded * 100) /
+              progressEvent.total)));
+        }
       });
-      const { fileName, filePath } = res.data;
-      setUploadedfile({ fileName, filePath });
-    } catch (err) {
-      if (err.response.status === 500) {
-        console.log("problem w. server");
-      } else {
-        console.log(err.response.data.mssg);
-      }
+      setTimeout(() => setUploadPercentage(0), 3000);
     }
+    catch (err) {
+      if (err.response.status === 500) {
+        console.log('There was a problem with the server');
+      } else {
+        console.log(err.response.data.msg);
+      }
+      setUploadPercentage(0)
+    }
+  };
+
+  const search = (data) => {
+    return data.filter((item) => item.Skills.toLowerCase().includes(searchTerm.toString().toLowerCase()));
   };
 
   return (
     <div>
-      <h1 className="heading">HR Resume Parser</h1>
+      <h1 className="heading_3">
+        HR Resume Parser
+      </h1>
+
       <Link to="/">
-        <img className="Home" alt="Home" src={Home}></img>
+        <img className="home_3" alt="home_3" src={Home} />
+        <h5 className="home_text_3">Home</h5>
       </Link>
-      <h5 className="homeText">Home</h5>
+
       <Link to="/Application">
-        <img className="changeRole" alt="changerole" src={changeRole}></img>
+        <img className="change_role_3" alt="change_role_3" src={changeRole} />
+        <h5 className="change_role_text_3">Change Role</h5>
       </Link>
-      <h5 className="changeroleText">Change Role</h5>
-      <img className="line" alt="line" src={Line}></img>
-      <img className="HRIcon2" alt="HRIcon2" src={HRIcon2}></img>
-      <h3 className="HRText">HR Representative</h3>
-      <img className="blueBubble2" alt="blueBubble2" src={blueBubble2}></img>
-      <h2 className="HRText2">
-        Welcome HR representative! To get started with <br />
-        the resume parser, please upload an Excel file.
+
+      <img className="line_3" alt="line_3" src={Line} />
+      <img className="hr_icon_3" alt="hr_icon_3" src={HRIcon2} />
+
+
+      <h3 className="hr_text_2">HR Representative</h3>
+      <img className="blue_bubble_3" alt="blue_bubble_3" src={blueBubble2} />
+
+      <h2 className="hr_text_3">
+        Welcome HR representative! To get started with
+        <br />
+        the resume parser, please upload an Excel file
+        <br />
+        or a Text file
       </h2>
-      <img className="whiteBubble2" alt="whiteBubble2" src={whiteBubble2}></img>
+      <img className="white_bubble_3" alt="white_bubble_3" src={whiteBubble2} />
+
       <div>
         <input
-          className="form-control form-control-lg"
-          id="formFileLg"
+          className="form_control_3 form-control-lg"
+          id="form_file_lg"
           type="file"
           onChange={(e) => {
             setFile(e.target.files[0]);
-            setFilename(e.target.files[0].name);
-            console.log(e.target.files[0].name);
           }}
         />
       </div>
-      <img className="blueBubble3" alt="blueBubble3" src={blueBubble2}></img>
-      <form onSubmit={onSubmit}>
-        <input type="submit" value="Upload" className="upload" />
-        <button className="upload">Upload</button>
-      </form>
-      {uploadedFile ? (
-        <div className="row mt-5">
-          <div className="col-md-6 m-auto">
-            <h3 className="text-center"> {uploadedFile.fileName} </h3>
-          </div>
-        </div>
-      ) : null}
-      <button className="cancel">Cancel</button>
 
-      <h3 className="fileLoadingHolder">FileName.txt is loading...</h3>
-      <h3 className="ProgressBarHolder2">Dynamic Progress Bar</h3>
+      <form onSubmit={onSubmit}>
+        <input type="submit" value="Upload" className="upload_3" />
+        <button className="upload_3">Upload</button>
+      </form>
 
       <form className="d-flex" role="search">
         <input
-          className="form-control2 me-2"
+          className="form_control_2"
           type="search"
           placeholder="Search..."
           aria-label="Search"
         />
       </form>
-      <img className="searchMag" alt="searchMag" src={searchMag}></img>
-      <img className="filter" alt="filter" src={filter}></img>
 
+      <img className="search_mag" alt="search_mag" src={searchMag} />
+      <img className="filter" alt="filter" src={filter} />
+
+      <Progress percentage={uploadPercentage} />
       {files && (
-        <table className="table2 table-bordered">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th
@@ -181,4 +192,4 @@ const HRDash = () => {
   );
 };
 
-export default HRDash;
+export default HRDashboard;

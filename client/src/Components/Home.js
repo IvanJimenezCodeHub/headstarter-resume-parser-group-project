@@ -19,7 +19,7 @@ const HomePage = () => {
             </div >
             <div className='second_container'>
                 <img className='white_bubble' alt='white_bubble' src={whiteBubble}></img>
-                <Link to="/HRDash">
+                <Link to="/HRDashboard">
                     <img className='hr_icon' alt='hr_icon' src={HRIcon} ></img>
                     <p className='hr_text'>
                         I'm an HR Representative
