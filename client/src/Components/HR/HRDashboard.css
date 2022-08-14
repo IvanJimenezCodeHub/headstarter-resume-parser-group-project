@@ -1,0 +1,221 @@
+.heading_3 {
+    font-size: 46px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    top: 25px;
+    left: 40px;
+    position: absolute;
+}
+
+.home_3 {
+    position: absolute;
+    left: 1245px;
+    top: 30px;
+    height: auto;
+    width: 65px;
+}
+
+.home_text_3 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 1248px;
+    top: 95px;
+}
+
+.change_role_3 {
+    position: absolute;
+    left: 1390px;
+    top: 35px;
+    height: auto;
+    width: 55px;
+}
+
+.change_role_text_3 {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    left: 1360px;
+    top: 95px;
+}
+
+.line_3 {
+    position: absolute;
+    top: 80px;
+    left: 125px;
+    height: auto;
+    width: 90px;
+}
+
+.hr_icon_3 {
+    position: absolute;
+    top: 130px;
+    left: 230px;
+    height: auto;
+    width: 55px;
+}
+
+.hr_text_3 {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 295px;
+}
+
+.blue_bubble_3 {
+    position: absolute;
+    height: auto;
+    width: 1300px;
+    top: 225px;
+    left: 132px;
+}
+
+.hr_text_2 {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 133px;
+    left: 295px;
+}
+
+.hr_text_3 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 300px;
+    left: 165px;
+    text-align: center;
+}
+
+.white_bubble_3 {
+    position: absolute;
+    height: 200px;
+    width: 1300px;
+    top: 550px;
+    left: 85px;
+}
+
+.form_control_3 {
+    position: absolute;
+    top: 630px;
+    left: 230px;
+    height: auto;
+    width: 790px;
+}
+
+.upload_3 {
+    position: absolute;
+    top: 630px;
+    left: 1075px;
+    height: auto;
+    width: 175px;
+    background-color: #ece9e9;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgb(160, 160, 160);
+    padding: 9px 10px;
+}
+
+.upload_3:hover {
+    background-color: #64CE7C;
+    transition: 0.5s;
+}
+
+.upload_3:active {
+    background-color: #64CE7C;
+}
+
+.form_control_2 {
+    position: absolute;
+    top: 780px;
+    left: 140px;
+    width: 350px;
+    height: auto;
+}
+
+.search_mag {
+    position: absolute;
+    top: 782px;
+    left: 460px;
+    height: auto;
+    width: 25px;
+}
+
+.filter {
+    position: absolute;
+    top: 783px;
+    left: 500px;
+    height: auto;
+    width: 25px;
+}
+
+.table {
+    position: absolute;
+    top: 830px;
+    left: 135px;
+    width: 1250px;
+}
+
+th {
+    background-color: #4ECAFF;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.contactedButton {
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ece9e9;
+    height: auto;
+    width: 100px;
+}
+
+.contactedButton:hover {
+    background-color: #4ECAFF;
+    transition: 0.7s;
+}
+
+.contactedButton:active {
+    background-color: #4ECAFF;
+}
+
+.interviewButton {
+    box-shadow: 10px 5px 5px rgb(160, 160, 160);
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ece9e9;
+    height: auto;
+    width: 100px;
+}
+
+.interviewButton:hover {
+    background-color: #64CE7C;
+    transition: 0.7s;
+}
+
+.interviewButton:active {
+    background-color: #64CE7C;
+}

@@ -67,7 +67,7 @@ const Application = () => {
                 <img className='home' alt='home' src={Home2}></img>
                 <h5 className='home_text'>Home</h5>
             </Link>
-            <Link to='/HRDash'>
+            <Link to='/HRDashboard'>
                 <img className='change_role' alt='change_role' src={changeRole2}></img>
                 <h5 className='change_role_text'>Change Role</h5>
             </Link>
